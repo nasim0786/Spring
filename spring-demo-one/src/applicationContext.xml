@@ -7,26 +7,49 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- 
+	<context:property-placeholder location="classpath:sport.properties"/>
+	-->
 	
+	<bean id="appProps" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    <property name="locations">
+      <list>
+        <value>classpath:sport.properties</value>
+      </list>
+    </property>
+  </bean>
+	
+	
+	<bean id="placeholderConfig" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+    	<property name="properties" ref="appProps"/>
+  	</bean> 
+  
     <!-- Define your beans here -->
     
     <!-- define the dependency -->
-    
-    <bean id="myFortuneService"
-    		class="com.luv2code.springdemo.HappyFortuneService">
-    	</bean>
     
     <!--
  	<bean id="myCoach"
  		class="com.luv2code.springdemo.TrackCoach">	 		
  	</bean>
 	-->
+    <bean id="myFortuneService"
+    	class="com.luv2code.springdemo.HappyFortuneService">
+    </bean>
     
-    <bean id="myCoach"
+    <bean id="myTrackCoach"
         class="com.luv2code.springdemo.TrackCoach"> 
         <constructor-arg ref="myFortuneService"/>        
     </bean>
     
+    <bean id="myCricketCoach"
+        class="com.luv2code.springdemo.CricketCoach"> 
+        <property name="fortuneService" ref="myFortuneService"/>
+        
+        <property name="emailAddress" value="${foo.email}"/>
+        
+        <property name="team" value="${foo.team}"/>
+    </bean>
 
 </beans>
 
