@@ -1,0 +1,6 @@
+/.metadata/
+/.recommenders/
+/.gitignore
+/spring-demo-one/.settings/
+/spring-demo-one/bin/
+/spring-demo-annotations/.classpath
