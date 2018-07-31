@@ -1,6 +1,6 @@
 Here is a subtle point you need to be aware of with "prototype" scoped beans.
 
-For "prototype" scoped beans, Spring does not call the @PreDestroy method.  Gasp!  
+>>>>>>>>>>>> For "prototype" scoped beans, Spring does not call the @PreDestroy method.  Gasp!  >>>>>>>>>>>>>
 
 I didn't know this either until I dug through the Spring reference manual researching a student's question.
 
