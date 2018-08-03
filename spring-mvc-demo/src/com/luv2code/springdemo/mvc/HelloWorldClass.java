@@ -46,7 +46,7 @@ public class HelloWorldClass {
 		
 		model.addAttribute("message", result);
 		
-		return  "helloworld";
+		return "helloworld";
 	}
 
 }
