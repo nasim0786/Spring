@@ -15,6 +15,10 @@ public class StudentController {
 		Student student = new Student();
 		
 		model.addAttribute("student", student);
+		
+		//model.addAttribute("theCountryOptions", student.getCountryOptions());
+		//model.addAttribute("theCountryOptions", student.getCountryOptions()); 
+		
 		return "student-form";
 	}
 	
