@@ -1,7 +1,7 @@
 package com.luv2code.springdemo.mvc;
 
 import javax.validation.Valid;
-import javax.xml.bind.Binder;
+//import javax.xml.bind.Binder;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;

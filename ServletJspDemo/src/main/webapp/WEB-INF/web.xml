@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>IdFilter</filter-name>
+  	<display-name>IdFilter</display-name>
+  	<description></description>
+  	<filter-class>com.telusko.web.filter.IdFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>IdFilter</filter-name>
+  	<url-pattern>/addAlien</url-pattern>
+  </filter-mapping>
+  <servlet>
+  	<servlet-name>GetAlienContrller</servlet-name>
+  	<display-name>GetAlienContrller</display-name>
+  	<description></description>
+  	<servlet-class>com.telusko.web.GetAlienController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MyServlet</servlet-name>
+  	<display-name>MyServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.telusko.web.MyServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<display-name>Login</display-name>
+  	<description></description>
+  	<servlet-class>com.telusko.web.login.Login</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<display-name>Logout</display-name>
+  	<description></description>
+  	<servlet-class>com.telusko.web.login.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>GetAlienContrller</servlet-name>
+  	<url-pattern>/getAlien</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyServlet</servlet-name>
+  	<url-pattern>/addAlien</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+</web-app>
