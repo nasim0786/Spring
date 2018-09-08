@@ -1,14 +1,23 @@
 package com.luv2code.hibernate.demo.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.luv2code.hibernate.demo.DateUtils;
 
 @Entity
 @Table(name="student")
 public class Student {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
@@ -18,6 +27,10 @@ public class Student {
 	@Column(name="last_name")
 	private String lastName;
 	
+	@Column(name="dob")
+	@Temporal(TemporalType.DATE)  
+	private Date dob;
+	
 	@Column(name="email")
 	private String email;
 
@@ -25,9 +38,10 @@ public class Student {
 		
 	}
 
-	public Student(String firstName, String lastName, String email) {
+	public Student(String firstName, String lastName, Date dob, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.dob = dob;
 		this.email = email;
 	}
 
@@ -55,6 +69,14 @@ public class Student {
 		this.lastName = lastName;
 	}
 
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -65,7 +87,9 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
-	}	
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + DateUtils.formatDate(dob) 
+		+ ", email=" + email + "]";
+
+	}
 
 }

@@ -1,6 +1,6 @@
 package com.luv2code.hibernate.demo;
 
-import java.text.ParseException;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,29 +8,34 @@ import org.hibernate.cfg.Configuration;
 
 import com.luv2code.hibernate.demo.entity.Student;
 
-public class CreateStudentDemo {
+public class QueryStudentDemo {
 
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration()
-			.configure("hibernate.cfg.xml").addAnnotatedClass(Student.class).buildSessionFactory();
+				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Student.class)
+				.buildSessionFactory();
 		
 		Session session = factory.getCurrentSession();
 		
 		try {
-			System.out.println("Creating new student");
-
-			Student stu = new Student("Md", "Nasim", DateUtils.parseDate("15/02/1993"), "md.nasim@gmail.com");
 			session.beginTransaction();
-			System.out.println("Saving Student");
 			
-			session.save(stu);
+			List<Student> students = session.createQuery("from Student").list();
+			
+			displayStudents(students);
+			
 			session.getTransaction().commit();
 			
 			System.out.println("Done!");
-		} catch (ParseException e) {
-			e.printStackTrace();
 		} finally {
 			session.close();
+		}
+	}
+
+	private static void displayStudents(List<Student> students) {
+		for(Student student : students) {
+			System.out.println(student);
 		}
 	}
 
