@@ -23,16 +23,17 @@ public class TestDbServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String url = "jdbc:mysql://localhost:3306/web_customer_tracker?";
+			String url = "jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false";
 			String uname = "springstudent";
 			String passwd = "springstudent";
+			PrintWriter out = response.getWriter();
+			
+			out.println("Connecting to database: " + url);
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, uname, passwd);
 			
-			PrintWriter out = response.getWriter();
-			
-			out.println("Success");
+			out.println("Success!!!");
 			
 			con.close();
 		} catch (Exception e) {
