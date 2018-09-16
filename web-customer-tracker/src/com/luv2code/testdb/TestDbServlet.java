@@ -23,7 +23,7 @@ public class TestDbServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String url = "jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false";
+			String url = "jdbc:mysql://localhost:3306/web_customer_tracker?";
 			String uname = "springstudent";
 			String passwd = "springstudent";
 			PrintWriter out = response.getWriter();
