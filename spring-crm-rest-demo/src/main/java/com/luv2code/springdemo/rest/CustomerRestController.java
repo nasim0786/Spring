@@ -66,49 +66,4 @@ public class CustomerRestController {
 		return "Deleted customer id: " + customerId;
 	}
 	
-/*
-	@GetMapping("/showFormForAdd")
-	public String showFormForAdd(Model model) {
-		
-		Customer customer = new Customer();
-		
-		model.addAttribute("customer", customer);
-		return "customer-form";
-	}
-	
-	@PostMapping("/saveCustomer")
-	public String saveForm(@ModelAttribute("customer") Customer customer) {
-		customerService.saveCustomer(customer);
-		return "redirect:/customer/list";
-	}
-	
-	@GetMapping("/showFormForUpdate")
-	public String showFormForUpdate(@RequestParam("customerId") int id, Model model) {
-		
-		Customer customer = customerService.getCustomer(id);
-		
-		model.addAttribute("customer", customer);
-		return "customer-form";
-	}
-	
-	@GetMapping("/delete")
-	public String deleteCustomer(@RequestParam("customerId") int id) {
-		
-		customerService.deleteCustomer(id);
-		return "redirect:/customer/list";
-	}
-	
-	@PostMapping("/search")
-    public String searchCustomers(@RequestParam("searchName") String searchName,
-                                    Model theModel) {
-
-        // search customers from the service
-        List<Customer> customers = customerService.searchCustomers(searchName);
-                
-        // add the customers to the model
-        theModel.addAttribute("customers", customers);
-
-        return "list-customers";        
-    }
-*/
 }
